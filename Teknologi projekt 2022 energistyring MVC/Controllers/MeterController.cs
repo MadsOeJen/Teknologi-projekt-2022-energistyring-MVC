@@ -19,6 +19,17 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
             }
         }
 
+        [Route("api/[controller]/Measurements/{MeterId}")]
+        [HttpGet]
+        public async Task<IResult> GetMeasurementsByMeterId(string MeterId, [FromServices] IMeasurementData data) {
+            try {
+                return Results.Ok(await data.GetMeasurementsByMeterId(MeterId));
+            }
+            catch (Exception ex) {
+                return Results.Problem(ex.Message);
+            }
+        }
+
 
         /********************************************************************************
         *                                HTTP DELETE
