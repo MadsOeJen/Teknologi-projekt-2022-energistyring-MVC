@@ -3,7 +3,7 @@
 namespace DataAccess.Data {
     public interface IMeasurementData {
         Task DeleteMeasurement(int id);
-        Task DeleteMeasurementByMeterId(string MeterId);
+        Task DeleteMeasurementsByMeterId(string MeterId);
         Task<MeasurementModel?> GetMeasurement(int id);
         Task<IEnumerable<MeasurementModel>> GetMeasurements();
         Task<IEnumerable<MeasurementModel>> GetMeasurementsByMeterId(string MeterId);

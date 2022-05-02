@@ -66,7 +66,7 @@ namespace DataAccess.Data {
             return _db.SaveData("dbo.spMeterData_Delete", new { Id = id });
         }
 
-        public Task DeleteMeasurementByMeterId(string MeterId) {
+        public Task DeleteMeasurementsByMeterId(string MeterId) {
             return _db.SaveData("dbo.spMeterData_DeleteByMeterId", new { MeterId });
         }
 
