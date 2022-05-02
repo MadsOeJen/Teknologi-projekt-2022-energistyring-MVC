@@ -21,6 +21,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
             }
         }
 
+
         [Route("api/[controller]/GetInterval")]
         [HttpGet]
         public async Task<IResult> GetMeasurementsByInterval(DateTime start, DateTime end, [FromServices] IMeasurementData data) {
@@ -31,6 +32,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
                 return Results.Problem(ex.Message);
             }
         }
+
 
         [Route("api/[controller]")]
         [HttpGet]
@@ -43,7 +45,8 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
             }
         }
 
-        [Route("api/[controller]")]
+
+        [Route("api/[controller]/specific")]
         [HttpGet]
         public async Task<IResult> GetMeasurementById(int Id, [FromServices] IMeasurementData data) {
             try {
@@ -59,7 +62,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
         * ******************************************************************************/
         [Route("api/[controller]")]
         [HttpPost]
-        public async Task<IResult> InserMeasurement([FromBody]MeasurementModel measurement, [FromServices] IMeasurementData data) {
+        public async Task<IResult> InsertMeasurement([FromBody]MeasurementModel measurement, [FromServices] IMeasurementData data) {
             try {
                 await data.InsertMeasurement(measurement);
                 return Results.Ok();

@@ -10,7 +10,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
         * ******************************************************************************/
         [Route("api/[controller]")]
         [HttpGet]
-        public async Task<IResult> Get([FromServices] IMeasurementData data) {
+        public async Task<IResult> GetMeters([FromServices] IMeasurementData data) {
             try {
                 return Results.Ok(await data.GetMeters());
             }
@@ -25,7 +25,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
         * ******************************************************************************/
         [Route("api/[controller]")]
         [HttpDelete]
-        public async Task<IResult> DeleteMeasurementByMeterId(string MeterId, [FromServices] IMeasurementData data) {
+        public async Task<IResult> DeleteMeasurementsByMeterId(string MeterId, [FromServices] IMeasurementData data) {
             try {
                 await data.DeleteMeasurementsByMeterId(MeterId);
                 return Results.Ok();
