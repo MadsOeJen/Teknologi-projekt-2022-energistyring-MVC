@@ -9,23 +9,73 @@ using System.Threading.Tasks;
 namespace DataAccess.Data {
     public class MeasurementData : IMeasurementData {
 
+
         private readonly ISqlDataAccess _db;
 
+
+        /********************************************************************************
+        *                                CONSTRUCTOR
+        * ******************************************************************************/
+        #region
         public MeasurementData(ISqlDataAccess db) {
             _db = db;
         }
+        #endregion
 
+        /********************************************************************************
+        *                                GET DATA
+        * ******************************************************************************/
+        #region
         public Task<IEnumerable<MeasurementModel>> GetMeasurements() {
             return _db.LoadData<MeasurementModel, dynamic>("dbo.spMeterData_GetAll", new { });
         }
 
-        public async Task<MeasurementModel?> GetMeasurementsByTime(DateTime TimeStart, DateTime TimeEnd) {
+        public async Task<MeasurementModel?> GetMeasurement(int id) {
+            var results = await _db.LoadData<MeasurementModel, dynamic>(
+                "dbo.spMeterData_Get",
+                new { Id = id });
+            return results.FirstOrDefault();
+        }
+
+        public async Task<IEnumerable<MeasurementModel>> GetMeasurementsByTime(DateTime TimeStart, DateTime TimeEnd) {
             var results = await _db.LoadData<MeasurementModel, dynamic>(
                 "dbo.spMeterData_GetByInterval",
                 new { TimeStart, TimeEnd });
 
-            return results.FirstOrDefault();
+            return results;
         }
+
+        public async Task<IEnumerable<MeasurementModel>> GetMeasurementsByMeterId(string MeterId) {
+            var results = await _db.LoadData<MeasurementModel, dynamic>(
+                "dbo.spMeterData_GetByInterval",
+                new { MeterId });
+
+            return results;
+        }
+
+        public Task<IEnumerable<MeasurementModel>> GetMeters() {
+            return _db.LoadData<MeasurementModel, dynamic>("dbo.spMeterData_GetAllMeters", new { });
+        }
+        #endregion
+
+        /********************************************************************************
+        *                                DELETE DATA
+        * ******************************************************************************/
+        #region
+        public Task DeleteMeasurement(int id) {
+            return _db.SaveData("dbo.spMeterData_Delete", new { Id = id });
+        }
+
+        public Task DeleteMeasurementByMeterId(string MeterId) {
+            return _db.SaveData("dbo.spMeterData_DeleteByMeterId", new { MeterId });
+        }
+
+        #endregion
+
+        /********************************************************************************
+        *                                INSERT DATA
+        * ******************************************************************************/
+        #region
 
         public Task InsertMeasurement(MeasurementModel measurement) {
             return _db.SaveData("dbo.spMeterData_Insert", new {
@@ -37,7 +87,7 @@ namespace DataAccess.Data {
                 measurement.MeterId
             });
         }
-
+        #endregion
 
     }
 }
