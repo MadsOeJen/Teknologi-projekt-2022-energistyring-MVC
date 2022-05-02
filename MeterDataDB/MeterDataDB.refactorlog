@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="95614e12-76ef-45a3-ab8a-32c656fb8766" ChangeDateTime="04/19/2022 19:49:55">
+    <Property Name="ElementName" Value="[dbo].[MeterData].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MeterData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Start" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6a9c0650-6f3b-4bd6-ab8b-57cf2babcf90" ChangeDateTime="04/19/2022 19:50:06">
+    <Property Name="ElementName" Value="[dbo].[MeterData].[Start]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MeterData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TimeStart" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="25603179-0b43-47dc-92aa-cc71c51c5734" ChangeDateTime="04/23/2022 12:38:10">
+    <Property Name="ElementName" Value="[dbo].[MeterData].[id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MeterData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0895f443-b51e-4629-9656-2edd12eca5bc" ChangeDateTime="04/23/2022 14:32:41">
+    <Property Name="ElementName" Value="[dbo].[MeterData].[Value]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MeterData]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Measurement" />
+  </Operation>
+</Operations>
