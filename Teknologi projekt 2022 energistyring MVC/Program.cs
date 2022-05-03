@@ -24,7 +24,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.initApi();
+//app.initApi();
 
 app.UseAuthorization();
 
