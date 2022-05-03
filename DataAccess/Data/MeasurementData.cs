@@ -47,14 +47,14 @@ namespace DataAccess.Data {
 
         public async Task<IEnumerable<MeasurementModel>> GetMeasurementsByMeterId(string MeterId) {
             var results = await _db.LoadData<MeasurementModel, dynamic>(
-                "dbo.spMeterData_GetByInterval",
+                "dbo.sp_MeterData_GetAllByMeterId",
                 new { MeterId });
 
             return results;
         }
 
-        public Task<IEnumerable<MeasurementModel>> GetMeters() {
-            return _db.LoadData<MeasurementModel, dynamic>("dbo.spMeterData_GetAllMeters", new { });
+        public Task<IEnumerable<string>> GetMeters() {
+            return _db.LoadData<string, dynamic>("dbo.spMeterData_GetAllMeters", new { });
         }
         #endregion
 

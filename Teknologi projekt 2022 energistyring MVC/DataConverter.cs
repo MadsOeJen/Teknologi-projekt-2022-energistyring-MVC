@@ -10,7 +10,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC {
                 if (RawData.Values.Length == 360) {
                     foreach (double value in RawData.Values) {
                         //E[kWh] = (P[W] * t[s]) * (J / kWh)
-                        Totalenergy += (value * 10) * (1 / 3600000);
+                        Totalenergy += (value * 10.0) * (1.0 / 3600000.0);
                     }
                 }
             }
@@ -18,7 +18,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC {
                 if (RawData.Values.Length == 360) {
                     foreach (double value in RawData.Values) {
                         //E[kWh] = (P[W] * t[s] * (kW / W)) * (J / kWh)
-                        Totalenergy += (value * 10000) * (1 / 3600000);
+                        Totalenergy += (value * 10000.0) * (1.0 / 3600000.0);
                     }
                 }
             }

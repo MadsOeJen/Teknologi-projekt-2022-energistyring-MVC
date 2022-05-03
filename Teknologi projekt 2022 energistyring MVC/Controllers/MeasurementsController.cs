@@ -22,7 +22,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
             }
         }
 
-        [Route("api/[controller]/GetInterval/{start}/{end}")]
+        [Route("api/[controller]/timespan")]
         [HttpGet]
         public async Task<IResult> GetMeasurementsByInterval(DateTime start, DateTime end, [FromServices] IMeasurementData data) {
             try {
@@ -33,7 +33,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
             }
         }
 
-        [Route("api/[controller]/specific/{Id}")]
+        [Route("api/[controller]/specific")]
         [HttpGet]
         public async Task<IResult> GetMeasurementById(int Id, [FromServices] IMeasurementData data) {
             try {
@@ -77,7 +77,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
         *                                HTTP DELETE
         * ******************************************************************************/
 
-        [Route("api/[controller]/{Id}")]
+        [Route("api/[controller]")]
         [HttpDelete]
         public async Task<IResult> DeleteMeasurementById(int Id, [FromServices] IMeasurementData data) {
             try {

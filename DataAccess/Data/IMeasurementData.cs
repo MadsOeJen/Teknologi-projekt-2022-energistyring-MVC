@@ -8,7 +8,7 @@ namespace DataAccess.Data {
         Task<IEnumerable<MeasurementModel>> GetMeasurements();
         Task<IEnumerable<MeasurementModel>> GetMeasurementsByMeterId(string MeterId);
         Task<IEnumerable<MeasurementModel>> GetMeasurementsByTime(DateTime TimeStart, DateTime TimeEnd);
-        Task<IEnumerable<MeasurementModel>> GetMeters();
+        Task<IEnumerable<string>> GetMeters();
         Task InsertMeasurement(MeasurementModel measurement);
     }
 }
