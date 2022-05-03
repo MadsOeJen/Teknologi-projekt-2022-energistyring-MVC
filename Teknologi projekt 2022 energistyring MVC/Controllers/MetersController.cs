@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
     [ApiController]
-    public class MeterController : ControllerBase {
-        
+    public class MetersController : ControllerBase {
+
         /********************************************************************************
         *                                HTTP GET
         * ******************************************************************************/
@@ -45,8 +45,6 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
                 return Results.Problem(ex.Message);
             }
         }
-
-
 
     }
 }

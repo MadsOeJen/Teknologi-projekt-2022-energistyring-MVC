@@ -47,7 +47,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
         /********************************************************************************
         *                                HTTP POST
         * ******************************************************************************/
-        [Route("api/[controller]/{rawData}")]
+        [Route("api/[controller]")]
         [HttpPost]
         public async Task<IResult> InsertMeasurement([FromBody]RawDataModel rawData, [FromServices] IMeasurementData data) {
             try {
@@ -60,7 +60,7 @@ namespace Teknologi_projekt_2022_energistyring_MVC.Controllers {
             }
         }
 
-        [Route("api/[controller]/DirectInsert/{measurement}")]
+        [Route("api/[controller]/DirectInsert")]
         [HttpPost]
         public async Task<IResult> InsertMeasurement([FromBody] MeasurementModel measurement, [FromServices] IMeasurementData data) {
             try {

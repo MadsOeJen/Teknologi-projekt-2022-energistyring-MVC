@@ -24,8 +24,6 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-//app.initApi();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
